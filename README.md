@@ -2,14 +2,6 @@
 Meraki APIs as part of a CICD Pipeline 
 
 
-
-
-
-
-| :exclamation:  External repository notice   |
-|:---------------------------|
-| This repository is now mirrored at "PLEASE UPDATE HERE - add External repo URL after code review is completed"  Please inform a https://github.com/gve-sw/ organization admin of any changes to mirror them to the external repo |
-
 ## Contacts
 * Ramona Renner
 * Jason Mah
