@@ -1,0 +1,71 @@
+stages:
+    - deploy_to_test
+    - verify_deploy_to_test
+    - deploy_to_prod
+    - verify_deploy_to_prod
+
+deploy_to_test:
+    image: python:3.7
+    stage: deploy_to_test
+    script:
+      - echo "Deploy to TEST environment"
+      - pip install -r requirements.txt
+      - export MERAKI_API_KEY=$MERAKI_API_KEY
+      - export NETWORK=$TESTING_NETWORK
+      - python app.py
+    environment:
+      name: master
+    only:
+      - master
+
+validate_test_environment:
+  image: python:3.7
+  stage: verify_deploy_to_test
+  script:
+    - echo "Verifying in TEST environment"
+    - pip install -r requirements.txt
+    - export MERAKI_API_KEY=$MERAKI_API_KEY
+    - export NETWORK=$TESTING_NETWORK
+    - python -m unittest test.Testing
+  environment:
+    name: master
+  only:
+    - master
+  
+
+deploy_to_prod:
+    image: python:3.7
+    stage: deploy_to_prod
+    script:
+      - echo "Deploy to PRODUCTION env"
+      - pip install -r requirements.txt
+      - export MERAKI_API_KEY=$MERAKI_API_KEY
+      - export NETWORK=$PRODUCTION_NETWORK
+      - python app.py
+    environment:
+      name: production
+    only:
+      - production
+    when: manual
+    allow_failure: false
+    only:
+      - production
+
+validate_prod_environment:
+  image: python:3.7
+  stage: verify_deploy_to_prod
+  dependencies:
+    - deploy_to_prod
+  script:
+    - echo "Verifying in PRODUCTION environment"
+    - pip install -r requirements.txt
+    - export MERAKI_API_KEY=$MERAKI_API_KEY
+    - export NETWORK=$PRODUCTION_NETWORK
+    - python -m unittest test.Testing
+  environment:
+    name: production
+  only:
+    - production
+
+  
+  

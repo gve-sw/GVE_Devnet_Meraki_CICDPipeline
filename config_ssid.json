@@ -1,0 +1,41 @@
+{
+    "number": 1,
+    "name":"SSID 2",
+    "enabled": true,
+    "authMode":"8021x-radius",
+    "wpaEncryptionMode":"WPA2 only",
+    "radiusServers":[ {
+                    "host": "10.1.1.1",
+                    "port": 1812,
+                    "secret": "merakiAndISE"
+                }
+            ],
+    "radiusAccountingEnabled": true,
+    "radiusAccountingServers":[{
+                    "host": "10.1.1.1",
+                    "port": 1813,
+                    "secret": "merakiAndISE"
+                }
+            ],
+    "radiusEnabled": true,
+    "radiusCoaEnabled":true,
+    "radiusAttributeForGroupPolicies":"Filter-Id",
+    "ipAssignmentMode":"Bridge mode",
+    "splashPage":"Click-through splash page",
+    "walledGardenEnabled":true,
+    "walledGardenRanges":[
+                "example.com",
+                "1.1.1.1/32"
+            ],
+    "minBitrate": 11,
+    "bandSelection":"5 GHz band only",
+    "perClientBandwidthLimitUp":1024,
+    "perClientBandwidthLimitDown":1024,
+    "visible":true,
+    "availableOnAllAps":false,
+    "availabilityTags":["DBS-Corp"],
+    "mandatoryDhcpEnabled":true,
+    "useVlanTagging":true,
+    "defaultVlanId":1,
+    "lanIsolationEnabled":true
+}
