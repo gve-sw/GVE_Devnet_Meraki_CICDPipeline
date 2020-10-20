@@ -219,19 +219,7 @@ In Gitlab, go to **Repository** > **Branches** > **New branch** > fill in the **
 
 GitLab uses GitLab runners to run the code defined in the pipeline definition file **gitlab-ci.yml**.
 
-There are different types of runners available. An overview of the different options is provided in the GitLab documentation: https://gitlab.com/help/ci/runners/README.
-
-Users that use a **self-managed GitLab instance**, can choose the most fitting option based on the documentation link shared above.
-
-**GitLab.com users** can easily enable the shared GitLab runners by: 
-
-1. In GitLab: go to the **Settings** > **CI/CD**.
-
-![/IMAGES/0image.png](/IMAGES/runner1.png)
-  
-2. In **Runners** section > click **Allow shared runners**
-
-![/IMAGES/0image.png](/IMAGES/runner2.png)
+There are different types of runners available. An overview of the different options is provided in the GitLab documentation: https://gitlab.com/help/ci/runners/README. This resource furthermore provides links to additional installation and configuration instructions for the different runner options.
 
 
 ### Log into Dashboards for Local and Remote Testing
